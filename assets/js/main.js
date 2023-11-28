@@ -61,7 +61,8 @@ const UltimateS = (function(){
             element.classList.add(class1);
         }
     };
-    
+  
+
     // io animation
     let observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
@@ -72,12 +73,44 @@ const UltimateS = (function(){
                 targetElement.classList.remove("active");
             }
         });
-    },{threshold: 0.2});
+    });
     
     const observeItems = document.querySelectorAll(".observe-item");
     observeItems.forEach((element) => {
         observer.observe(element);
     });
+
+    // odometer
+    const odometer = document.querySelectorAll(".odometer");
+
+    let observer2 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                setTimeout(function(){
+                    odometer[0].innerHTML = 40.4;
+                    odometer[1].innerHTML = 22.4;
+                    odometer[2].innerHTML = 18.5;
+                    odometer[3].innerHTML = 22.6;
+                    odometer[4].innerHTML = 8.6;
+                }, 100);
+            } else {
+                setTimeout(function(){
+                    odometer[0].innerHTML = 0;
+                    odometer[1].innerHTML = 0;
+                    odometer[2].innerHTML = 0;
+                    odometer[3].innerHTML = 0;
+                    odometer[4].innerHTML = 0;
+                }, 100);
+            }
+        });
+    });
+    
+    const odometerItems = document.querySelectorAll(".observe-odometer");
+    odometerItems.forEach((element) => {
+        observer2.observe(element);
+    });
+
+    
     
     // secret 백그라운드 스크롤 효과
     const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
