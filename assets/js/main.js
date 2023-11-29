@@ -142,15 +142,14 @@ const UltimateS = (function(){
 
     // secret - 제목 페이드
     const secretTitle = document.querySelectorAll(".the-ultimate-s2023--secret__title span")
-    secretTitle.forEach((item)=>{
+    secretTitle.forEach((item,index)=>{
         const secret2 = gsap.timeline({
             scrollTrigger:{
-                trigger:item,
-                start:"top 70%",
-                end:"100% 70%"
+                trigger:".the-ultimate-s2023--secret__title",
+                start:"top 80%"
             }
         });
-        secret2.fromTo(item,{autoAlpha:0},{autoAlpha:1});
+        secret2.fromTo(item,{autoAlpha:0},{autoAlpha:1,duration:0.6,delay:index*0.5});
     });
 
     // secret - 카드 애니메이션
