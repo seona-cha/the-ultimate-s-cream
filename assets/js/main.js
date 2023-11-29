@@ -114,7 +114,7 @@ const UltimateS = (function(){
     const graphLine = document.querySelector(".the-ultimate-s2023--lifting .the-ultimate-s2023-image");
     const liftingItem = document.querySelectorAll(".the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item");
 
-    const effect = gsap.timeline({
+    const lifting = gsap.timeline({
         scrollTrigger:{
             trigger:liftingSection,
             start:"25% 45%",
@@ -122,15 +122,14 @@ const UltimateS = (function(){
             scrub:true
         }
     })
-    effect.addLabel('a')
-          .from(graphLine,{autoAlpha:0,height:0,duration:5},'a')
-          .fromTo(liftingItem[0],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:1,duration:1},'a')
-          .fromTo(liftingItem[1],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:2,duration:1},'a')
-          .fromTo(liftingItem[2],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:3,duration:1},'a')
-          .fromTo(liftingItem[3],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:4,duration:1},'a')
+    lifting.addLabel('a')
+           .from(graphLine,{autoAlpha:0,height:0,duration:5},'a');
+    liftingItem.forEach((item,index)=>{
+        lifting.fromTo(item,{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:index+1,duration:1},'a');
+    });
     
-    // secret 백그라운드 스크롤 효과
-    const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
+    // secret - 백그라운드 스크롤
+    const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img");
     const secret = gsap.timeline({
         scrollTrigger:{
             trigger:".the-ultimate-s2023--secret",
@@ -141,7 +140,20 @@ const UltimateS = (function(){
     });
     secret.from(secretBG,{y:"-20%",scale:1.1, autoAlpha:0.6});
 
-    // secret 영역 카드 애니메이션
+    // secret - 제목 페이드
+    const secretTitle = document.querySelectorAll(".the-ultimate-s2023--secret__title span")
+    secretTitle.forEach((item)=>{
+        const secret2 = gsap.timeline({
+            scrollTrigger:{
+                trigger:item,
+                start:"top 70%",
+                end:"100% 70%"
+            }
+        });
+        secret2.fromTo(item,{autoAlpha:0},{autoAlpha:1});
+    });
+
+    // secret - 카드 애니메이션
     const secretCard = gsap.timeline({
         scrollTrigger: {
             trigger: ".the-ultimate-s2023--secret__list-wrapper",
@@ -175,6 +187,7 @@ const UltimateS = (function(){
               .from(desc,{autoAlpha:0,y:25});
     });
 
+    // resize시 gsap 새로고침
     window.addEventListener("resize", ScrollTrigger.update);
 
 })();
