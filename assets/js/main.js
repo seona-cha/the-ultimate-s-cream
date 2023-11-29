@@ -66,14 +66,13 @@ const UltimateS = (function(){
     // io animation
     let observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
+            console.log(entry);
             const targetElement = entry.target;
             if (entry.isIntersecting) {
                 targetElement.classList.add("active");
-            } else {
-                targetElement.classList.remove("active");
             }
         });
-    });
+    },{threshold:0.2});
     
     const observeItems = document.querySelectorAll(".observe-item");
     observeItems.forEach((element) => {
@@ -129,8 +128,8 @@ const UltimateS = (function(){
         scrollTrigger: {
             trigger: ".the-ultimate-s2023--secret__list-wrapper",
             start: "top top",
-            end: `+=${5*document.documentElement.offsetHeight}`,
-            pin:true,
+            end: `100% 100%`,
+            pin:false,
             scrub: true
         }
     });
@@ -156,13 +155,6 @@ const UltimateS = (function(){
         secretCard
               .from(title,{autoAlpha:0,y:25})
               .from(desc,{autoAlpha:0,y:25});
-    });
-
-    // resize시 맨위로 
-    window.addEventListener("resize",function(){
-        this.scrollTo({
-            top:0
-        });
     });
 
 })();
