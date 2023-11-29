@@ -81,7 +81,7 @@ body{
     transform: translateX(-50%);
 }
 .the-ultimate-s2023--intro .the-ultimate-s2023-text{
-    margin-top: 10px;
+    margin-top: 5px;
     font-size: 25px;
     color: #f7f7f7;
     letter-spacing: 0.092em;
@@ -193,7 +193,7 @@ body{
     color: #747474;
 }
 .the-ultimate-s2023--cream .the-ultimate-s2023--cream__desc{
-    margin-top: 20px;
+    margin-top: 15px;
     font-size: 38px;
     font-weight: 700;
     line-height: 1.36;
@@ -202,7 +202,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 18px;
+    margin-top: 12px;
 }
 .the-ultimate-s2023--cream .the-ultimate-s2023--cream__price li{
     position: relative;
@@ -228,7 +228,7 @@ body{
 }
 .the-ultimate-s2023--cream .the-ultimate-s2023--cream__cta{
     display: inline-block;
-    margin-top: 34px;
+    margin-top: 30px;
     padding: 17px 26px 16px;
     border: 2px solid #535353;
     border-radius: 40px;
@@ -281,7 +281,7 @@ body{
 .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__desc{
     width: 85%;
     max-width: 1220px;
-    margin: 30px auto 0;
+    margin: 25px auto 0;
     text-align: right;
     font-size: 24px;
     color: #bfbfbf;
@@ -423,7 +423,7 @@ body{
     font-weight: 700;
 }
 .the-ultimate-s2023--effect .the-ultimate-s2023--effect__list{
-    margin-top: 72px;
+    margin-top: 65px;
     display: flex;
     flex-direction: column;
     gap: 66px;
@@ -438,7 +438,7 @@ body{
     gap: 60px;
 }
 .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box{
-    margin-top: 12px;
+    margin-top: 5px;
     display: flex;
     flex-direction: column;
     font-size: 24px;
@@ -447,7 +447,6 @@ body{
     letter-spacing: -0.03em;
 }
 .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box em{
-    margin-bottom: 3px;
     font-size: 86px;
     line-height: 1.1;
     font-weight: 500;
@@ -576,7 +575,7 @@ body{
     color: #8d9293;
 }
 .the-ultimate-s2023--secret .item__title{
-    margin-top: 17px;
+    margin-top: 15px;
     font-size: 40px;
     font-weight: 500;
     line-height: 1.25;
@@ -589,7 +588,7 @@ body{
 }
 .the-ultimate-s2023--secret .item__sup{
     display: block;
-    margin-top: 32px;
+    margin-top: 30px;
     font-size: 16px;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__item:nth-child(2) .item__index{
@@ -759,7 +758,7 @@ body{
     padding: 22% 8%;
 }
 .the-ultimate-s2023--display .item__sub-title{
-    margin-bottom: 24px;
+    margin-bottom: 20px;
     font-size: 22px;
     font-weight: 700;
     color: #7d7d7d;
@@ -768,7 +767,7 @@ body{
     color: #7c7152;
 }
 .the-ultimate-s2023--display .item__title{
-    margin-bottom: 26px;
+    margin-bottom: 20px;
     font-size: 38px;
     font-weight: 700;
     line-height: 1.36;
@@ -865,7 +864,7 @@ body{
     }
     .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__desc{
         width: 92%;
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 20px;
     }
     .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item{
@@ -912,7 +911,6 @@ body{
         font-size: 22px;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box em{
-        margin-bottom: 2px;
         font-size: 70px;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__sup{
@@ -927,11 +925,11 @@ body{
         font-size: 18px;
     }
     .the-ultimate-s2023--secret .item__title{
-        margin-top: 12px;
+        margin-top: 10px;
         font-size: 34px;
     }
     .the-ultimate-s2023--secret .item__desc{
-        margin-top: 20px;
+        margin-top: 15px;
         font-size: 20px;
     }
     /* design */
@@ -942,15 +940,15 @@ body{
         font-size: 18px;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__title{
-        margin-top: 18px;
+        margin-top: 15px;
         font-size: 38px;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__desc{
-        margin-top: 15px;
+        margin-top: 12px;
         font-size: 22px;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__desc .small{
-        margin-top: 40px;
+        margin-top: 35px;
         font-size: 14px;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__list{
@@ -987,11 +985,11 @@ body{
         padding: 14% 7%;
     }
     .the-ultimate-s2023--display .item__sub-title{
-        margin-bottom: 18px;
+        margin-bottom: 15px;
         font-size: 18px;
     }
     .the-ultimate-s2023--display .item__title{
-        margin-bottom: 18px;
+        margin-bottom: 15px;
         font-size: 30px;
     }
     .the-ultimate-s2023--display .item__price li{
@@ -1031,13 +1029,13 @@ body{
         margin-top: 21.3333vw;
         transform:translate(0);
     }
-    .the-ultimate-s2023--intro .the-ultimate-s2023-section__inner .observe-item{
+    .the-ultimate-s2023--intro .the-ultimate-s2023-section__inner .ani-fade-up{
         display: flex;
         flex-direction: column;
         align-items: center;
     }
     .the-ultimate-s2023--intro .the-ultimate-s2023-text{
-        margin-top: 2.6666vw;
+        margin-top: 1vw;
         font-size: 4vw;
     }
     .the-ultimate-s2023--intro .the-ultimate-s2023-image{
@@ -1093,11 +1091,11 @@ body{
         font-size: 3.7333vw;
     }
     .the-ultimate-s2023--cream .the-ultimate-s2023--cream__desc{
-        margin-top: 5.3333vw;
+        margin-top: 3.3333vw;
         font-size: 5.8666vw;
     }
     .the-ultimate-s2023--cream .the-ultimate-s2023--cream__price{
-        margin-top: 5.8666vw;
+        margin-top: 3.6666vw;
     }
     .the-ultimate-s2023--cream .the-ultimate-s2023--cream__price li{
         padding: 0 2.6666vw;
@@ -1112,7 +1110,7 @@ body{
         height: 3.7333vw;
     }
     .the-ultimate-s2023--cream .the-ultimate-s2023--cream__cta{
-        margin-top: 5.3333vw;
+        margin-top: 5vw;
         padding: 2.6666vw 4vw;
         border: 0.27vw solid #535353;
         border-radius: 8vw;
@@ -1146,7 +1144,7 @@ body{
     }
     .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__desc{
         width: 100%;
-        margin-top: 5.0666vw;
+        margin-top: 3vw;
         text-align: left;
         font-size: 4vw;
     }
@@ -1233,7 +1231,7 @@ body{
         gap: 7.3333vw;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box{
-        margin-top: 1.3333vw;
+        margin-top: 1vw;
         font-size: 3.4666vw;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box em{
@@ -1297,7 +1295,7 @@ body{
         color: #8daed1;
     }
     .the-ultimate-s2023--secret .item__title{
-        margin-top: 4vw;
+        margin-top: 3vw;
         font-size: 6.6666vw;
     }
     .the-ultimate-s2023--secret .item__desc{
@@ -1325,7 +1323,7 @@ body{
         font-size: 3.7333vw;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__title{
-        margin-top: 3.3333vw;
+        margin-top: 3vw;
         font-size: 6.9333vw;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__desc{
@@ -1333,7 +1331,7 @@ body{
         font-size: 4.2666vw;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__desc .small{
-        margin-top: 5.5555vw;
+        margin-top: 5vw;
         font-size: 2.5vw;
     }
     .the-ultimate-s2023--design .the-ultimate-s2023--design__list{
@@ -1388,7 +1386,7 @@ body{
     .the-ultimate-s2023--display .the-ultimate-s2023--display__item:nth-child(1) .item__inner,
     .the-ultimate-s2023--display .the-ultimate-s2023--display__item:nth-child(4) .item__inner{
         top: 0;
-        padding: 20.4vw 0;
+        padding: 19vw 0;
         transform: translateY(0);
     }
     .the-ultimate-s2023--display .the-ultimate-s2023--display__item:nth-child(4) .item__inner{
@@ -1400,11 +1398,11 @@ body{
         align-items: start;
     }
     .the-ultimate-s2023--display .item__sub-title{
-        margin-bottom: 4.4vw;
+        margin-bottom: 3vw;
         font-size: 3.7333vw;
     }
     .the-ultimate-s2023--display .item__title{
-        margin-bottom: 4.6vw;
+        margin-bottom: 3.5vw;
         font-size: 6.6666vw;
         font-weight: 700;
         line-height: 1.36;
