@@ -128,8 +128,8 @@ const UltimateS = (function(){
         lifting.fromTo(item,{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:index+1,duration:1},'a');
     });
     
-    // secret - 백그라운드 스크롤
-    const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img");
+    // secret 백그라운드 스크롤 효과
+    const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
     const secret = gsap.timeline({
         scrollTrigger:{
             trigger:".the-ultimate-s2023--secret",
@@ -140,24 +140,13 @@ const UltimateS = (function(){
     });
     secret.from(secretBG,{y:"-20%",scale:1.1, autoAlpha:0.6});
 
-    // secret - 제목 페이드
-    const secretTitle = document.querySelectorAll(".the-ultimate-s2023--secret__title span")
-    secretTitle.forEach((item,index)=>{
-        const secret2 = gsap.timeline({
-            scrollTrigger:{
-                trigger:".the-ultimate-s2023--secret__title",
-                start:"top 80%"
-            }
-        });
-        secret2.fromTo(item,{autoAlpha:0},{autoAlpha:1,duration:0.6,delay:index*0.5});
-    });
-
-    // secret - 카드 애니메이션
+    // secret 영역 카드 애니메이션
     const secretCard = gsap.timeline({
         scrollTrigger: {
             trigger: ".the-ultimate-s2023--secret__list-wrapper",
             start: "top top",
             end: `100% 100%`,
+            markers:true,
             pin:false,
             scrub: true
         }
@@ -186,7 +175,6 @@ const UltimateS = (function(){
               .from(desc,{autoAlpha:0,y:25});
     });
 
-    // resize시 gsap 새로고침
     window.addEventListener("resize", ScrollTrigger.update);
 
 })();

@@ -466,12 +466,12 @@ body{
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title span{
     position: relative;
     z-index: 1;
-    transition: opacity 0.4s;
+    opacity: 0;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color1{color: #9a9a9a;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color2{color: #c1c1c1;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color3{color: #ffffff;}
-/* .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title.active span{
+.the-ultimate-s2023--secret .the-ultimate-s2023--secret__title.active span{
     animation: fadeIn 0.5s forwards;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title.active .color1{ animation-delay: 0.3s;}
@@ -484,7 +484,7 @@ body{
     to{
         opacity: 1;
     }
-} */
+}
 .the-ultimate-s2023--secret__list-wrapper{
     width: 100vw;
     height: 500vw;
