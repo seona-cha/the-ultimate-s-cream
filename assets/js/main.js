@@ -146,7 +146,6 @@ const UltimateS = (function(){
             trigger: ".the-ultimate-s2023--secret__list-wrapper",
             start: "top top",
             end: `100% 100%`,
-            markers:true,
             pin:false,
             scrub: true
         }
