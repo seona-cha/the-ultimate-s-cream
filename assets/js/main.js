@@ -124,10 +124,10 @@ const UltimateS = (function(){
     })
     effect.addLabel('a')
           .from(graphLine,{autoAlpha:0,height:0,duration:5},'a')
-          .from(liftingItem[0],{autoAlpha:0,y:-10,delay:1,duration:1},'a')
-          .from(liftingItem[1],{autoAlpha:0,y:-10,delay:2,duration:1},'a')
-          .from(liftingItem[2],{autoAlpha:0,y:-10,delay:3,duration:1},'a')
-          .from(liftingItem[3],{autoAlpha:0,y:-10,delay:4,duration:1},'a')
+          .fromTo(liftingItem[0],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:1,duration:1},'a')
+          .fromTo(liftingItem[1],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:2,duration:1},'a')
+          .fromTo(liftingItem[2],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:3,duration:1},'a')
+          .fromTo(liftingItem[3],{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:4,duration:1},'a')
     
     // secret 백그라운드 스크롤 효과
     const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
