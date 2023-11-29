@@ -157,4 +157,6 @@ const UltimateS = (function(){
               .from(desc,{autoAlpha:0,y:25});
     });
 
+    window.addEventListener("resize", ScrollTrigger.update);
+
 })();
