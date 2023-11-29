@@ -300,43 +300,17 @@ body{
     height: 100%;
     object-fit: cover;
 }
-.the-ultimate-s2023--lifting .observe-item .the-ultimate-s2023-image{
+.the-ultimate-s2023--lifting .the-ultimate-s2023-image{
     position: absolute;
-    top: 16%; left: 44%;
+    top: 16.5%; left: 44%;
     transform: translateX(-50%);
     width: 43.5333%;
-    height: 0;
+    height: auto;
     overflow: hidden;
+    transition:height 0.3s;
 }
-.the-ultimate-s2023--lifting .observe-item.active .the-ultimate-s2023-image{
-    animation:graphLine 2.5s forwards ease-in;
-}
-@keyframes graphLine{
-    from{
-        height: 0;
-    }
-    to{
-        height: 1064px;
-    }
-}
-.the-ultimate-s2023--lifting .observe-item .the-ultimate-s2023--lifting__item{
-    opacity: 0;
-}
-.the-ultimate-s2023--lifting .observe-item.active .the-ultimate-s2023--lifting__item{
-    animation:liftingItem 0.5s forwards;
-}
-@keyframes liftingItem{
-    0%{
-        transform: translateY(40px);
-        opacity: 0;
-    }
-    50%{
-        transform: translateY(-10px);
-    }
-    100%{
-        transform: translateY(0px);
-        opacity: 1;
-    }
+.the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item{
+    transition:all 0.5s;
 }
 .the-ultimate-s2023--lifting .observe-item.active .the-ultimate-s2023--lifting__item:nth-child(1){animation-delay:1s}
 .the-ultimate-s2023--lifting .observe-item.active .the-ultimate-s2023--lifting__item:nth-child(2){animation-delay:1.5s}
@@ -873,7 +847,7 @@ body{
     .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item em{
         font-size: 65px;
     }
-    .the-ultimate-s2023--lifting .observe-item .the-ultimate-s2023-image{
+    .the-ultimate-s2023--lifting .the-ultimate-s2023-image{
         width: 44%;
         left: 45%;
     }
@@ -1155,21 +1129,13 @@ body{
         width: 80vw;
         height: 130.3vw;
     }
-    .the-ultimate-s2023--lifting .observe-item .the-ultimate-s2023-image{
+    .the-ultimate-s2023--lifting .the-ultimate-s2023-image{
         top: 0;
         left: 0;
-        width: auto;
-        height: 0;
+        width: 100%;
+        height: auto;
         overflow: hidden;
         transform: translate(0);
-    }
-    @keyframes graphLine{
-        from{
-            height: 0;
-        }
-        to{
-            height: 130.3vw
-        }
     }
     .the-ultimate-s2023--lifting .the-ultimate-s2023-image{
         margin-left: 0;
