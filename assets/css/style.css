@@ -39,7 +39,7 @@ body{
     opacity: 0;
 }
 .ani-fade-up.active{
-    animation: fadeUp 0.4s forwards;
+    animation: fadeUp 0.4s forwards 1;
 }
 @keyframes fadeUp{
     from{
@@ -69,7 +69,7 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s
+    transition: transform 0.3s;
 }
 .the-ultimate-s2023--intro .the-ultimate-s2023-section__inner{
     display: flex;
@@ -358,7 +358,6 @@ body{
     position: absolute;
     display: flex;
     flex-direction: column;
-    gap: 0.2vw;
     font-size: 26px;
     font-weight: 700;
     letter-spacing: -0.03em;
@@ -382,6 +381,7 @@ body{
     font-family: 'Theinhardt';
     font-size: 90px;
     font-weight: 500;
+    line-height: 1.2;
     color: #e86e25;
     letter-spacing: -0.04em;
 }
@@ -447,8 +447,9 @@ body{
     letter-spacing: -0.03em;
 }
 .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box em{
-    margin-bottom: 8px;
+    margin-bottom: 3px;
     font-size: 86px;
+    line-height: 1.1;
     font-weight: 500;
     color: #e86e25;
     letter-spacing: -0.02em;
@@ -472,12 +473,15 @@ body{
     position: absolute;
     top: 0;left: 0;
     overflow: hidden;
+    z-index:0;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023-section__background img{
     width: 100vw;
     transition:transform 0.03s
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023-section__inner{
+    position: relative;
+    z-index:10;
     padding-top: 60.9375vw;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title{
@@ -562,6 +566,7 @@ body{
     display: inline-block;
     font-size: 20px;
     font-weight: 500;
+    line-height: 1.2;
     color: #8d9293;
 }
 .the-ultimate-s2023--secret .item__title{
@@ -901,7 +906,7 @@ body{
         font-size: 22px;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box em{
-        margin-bottom: 5px;
+        margin-bottom: 2px;
         font-size: 70px;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__sup{
@@ -1172,7 +1177,6 @@ body{
         height: 100%;
     }
     .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item{
-        gap: 0.6vw;
         font-size: 3.4666vw;
         padding: 0;
     }
@@ -1227,7 +1231,6 @@ body{
         font-size: 3.4666vw;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__item-box em{
-        margin-bottom: 0.6666vw;
         font-size: 11.7333vw;
     }
     .the-ultimate-s2023--effect .the-ultimate-s2023--effect__sup{

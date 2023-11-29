@@ -159,10 +159,10 @@ const UltimateS = (function(){
     });
 
     // resize시 맨위로 
-    // window.addEventListener("resize",function(){
-    //     this.scrollTo({
-    //         top:0
-    //     });
-    // });
+    window.addEventListener("resize",function(){
+        this.scrollTo({
+            top:0
+        });
+    });
 
 })();
