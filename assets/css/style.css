@@ -473,6 +473,8 @@ body{
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color3{color: #ffffff;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title.active span{
     animation: fadeIn 0.5s forwards;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title.active .color1{ animation-delay: 0.3s;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title.active .color2{ animation-delay: 0.6s;}
