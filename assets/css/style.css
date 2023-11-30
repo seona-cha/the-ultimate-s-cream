@@ -462,6 +462,8 @@ body{
     font-weight: 700;
     line-height: 1.27;
     text-align: center;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-backface-visibility: hidden;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title span{
     position: relative;
