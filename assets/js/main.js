@@ -134,7 +134,8 @@ const UltimateS = (function(){
         scrollTrigger:{
             trigger:".the-ultimate-s2023--secret",
             start:"top 30%",
-            end:"40% 50%",
+            end:"10% 50%",
+            markers:true,
             scrub:true
         }
     });
