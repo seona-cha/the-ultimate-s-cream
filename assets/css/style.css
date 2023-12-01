@@ -65,11 +65,12 @@ body{
     width: 100%;
     height: 100%;
 }
-.the-ultimate-s2023--intro .the-ultimate-s2023-section__background img{
+.the-ultimate-s2023--intro .the-ultimate-s2023-section__background picture img{
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.3s;
+    transform: scale(1.02);
+    transition: transform 0.1s;
 }
 .the-ultimate-s2023--intro .the-ultimate-s2023-section__inner{
     display: flex;
@@ -98,6 +99,80 @@ body{
     animation-duration: 0.6s;
 }
 
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles{
+    position: absolute;
+    top: 0;left: 0;
+    width: 100%;
+    height: 100%;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles div{
+    width: fit-content;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle01{
+    position: absolute;
+    top: 2.8%; left:3.6%;
+    width: 6vw;
+    animation:upAndDown 3s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle02{
+    position: absolute;
+    bottom:3%; left: -1.4%;
+    width: 15vw;
+    animation:upAndDown 10s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle03{
+    position: absolute;
+    top: 5%; left: 32.4%;
+    width: 5vw;
+    animation:upAndDown 8s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle04{
+    position: absolute;
+    bottom:19%; left: 42.3%;
+    width: 3.6vw;
+    animation:upAndDown 10s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle05{
+    position: absolute;
+    bottom:1.4%; left:24.5%;
+    width: 5vw;
+    animation:upAndDown 5s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle06{
+    position: absolute;
+    top: 30%; left: 42.7%;
+    width: 5.4vw;
+    animation:upAndDown 7s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle07{
+    position: absolute;
+    bottom: 10.5%; right: 16%;
+    width: 5.3vw;
+    animation:upAndDown 6s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle08{
+    position: absolute;
+    top: -2.1%; right: 3.6%;
+    width: 5.7vw;
+    animation:upAndDown 4s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle09{
+    position: absolute;
+    top: 31.6%; right: 3.2%;
+    width: 5.9vw;
+    animation:upAndDown 10s infinite ease;
+}
+.the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle10{
+    position: absolute;
+    bottom: 1.4%; right: 2%;
+    width: 10.9vw;
+    animation:upAndDown 3s infinite ease;
+}
+@keyframes upAndDown{
+    0%{transform: translateY(0px);}
+    50%{transform: translateY(10px);}
+    100%{transform: translateY(0px);}
+}
 /* video */
 .the-ultimate-s2023--video{
     position: relative;
@@ -462,8 +537,6 @@ body{
     font-weight: 700;
     line-height: 1.27;
     text-align: center;
-    -webkit-transform: translate3d(0,0,0);
-    -webkit-backface-visibility: hidden;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title span{
     position: relative;

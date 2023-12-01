@@ -5,9 +5,18 @@ const UltimateS = (function(){
     const introBG = document.querySelector(".the-ultimate-s2023--intro");
     introBG.addEventListener("mousemove",function(e){
         const introBGImg = introBG.querySelector(".the-ultimate-s2023-section__background img");
-        let itemOffsetX = (e.clientX - (introBG.offsetWidth / 2)) * 0.01;
-        let itemOffsetY = (e.clientY - (introBG.offsetHeight / 2)) * 0.025;
-        introBGImg.style.transform = `scale(1.03) translate(${itemOffsetX}px,${itemOffsetY}px)`;
+        const particles = introBG.querySelectorAll(".particle");
+        let itemOffsetX = (e.clientX - (introBG.offsetWidth / 2)) * 0.005;
+        let itemOffsetY = (e.clientY - (introBG.offsetHeight / 2)) * 0.015;
+        let dataValue = 0;
+        particles.forEach((item)=>{
+            dataValue = item.getAttribute('data-value');
+            const particle = item.querySelector('img');
+            let particleX = itemOffsetX * dataValue * 0.2;
+            let particleY = itemOffsetY * dataValue * 0.15;
+            particle.style.transform = `translate(${particleX}px,${particleY}px)`;
+        });
+        introBGImg.style.transform = `scale(1.02) translate(${itemOffsetX}px,${itemOffsetY}px)`;
     });
 
     // intro 열기
@@ -21,6 +30,7 @@ const UltimateS = (function(){
         }
     })
     introOpen.addLabel('a')
+             .to(introBG,{y:"-100%", duration:5},'a')
              .to(introBG,{y:"-100%", duration:5},'a')
              .from(".the-ultimate-s2023-section__video",{autoAlpha:0,duration:1,delay:1},'a');
 
@@ -135,7 +145,6 @@ const UltimateS = (function(){
             trigger:".the-ultimate-s2023--secret",
             start:"top 30%",
             end:"10% 50%",
-            markers:true,
             scrub:true
         }
     });
