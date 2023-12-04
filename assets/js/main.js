@@ -29,10 +29,10 @@ const UltimateS = (function(){
         }
     })
     introOpen.addLabel('a')
-             .to(introBG,{y:"-100%", duration:5},'a')
-             .to(introBG,{y:"-100%", duration:5},'a')
              .from(".the-ultimate-s2023-section__video",{autoAlpha:0,duration:1,delay:1},'a');
 
+
+    // 비디오 멈췄다가 보이면 재생
     ScrollTrigger.create({
         trigger: ".the-ultimate-s2023--intro",
         start: `60% top`,
@@ -49,8 +49,6 @@ const UltimateS = (function(){
             })
         }
     });
-
-    // 비디오 멈췄다가 보이면 재생
 
     // 비디오 자막 버튼
     const videoDescBtn = document.querySelector(".the-ultimate-s2023-video__button");
@@ -74,19 +72,16 @@ const UltimateS = (function(){
 
     window.addEventListener("scroll",function(){
         let curr = window.scrollY;
-        
         // cream 영역 particles
         const creamStart = document.querySelector(".the-ultimate-s2023--cream").offsetTop - (document.documentElement.offsetHeight / 2);
         const creamEnd = document.querySelector(".the-ultimate-s2023--cream").offsetTop + document.querySelector(".the-ultimate-s2023--cream").offsetHeight - (document.documentElement.offsetHeight / 2);
         const creamCurr = window.scrollY - creamStart;
         const particle = document.querySelectorAll(".the-ultimate-s2023--cream .particle");
+
         if(curr > creamStart && curr < creamEnd){
             particle[0].style.transform = `rotate(${creamCurr * -0.2}deg)`;
             particle[1].style.transform = `rotate(${creamCurr * 0.4}deg)`;
         }
-
-         
-       
     })
     
 
@@ -107,7 +102,6 @@ const UltimateS = (function(){
 
     // odometer
     const odometer = document.querySelectorAll(".odometer");
-
     let observer2 = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -135,6 +129,51 @@ const UltimateS = (function(){
         observer2.observe(element);
     });
 
+
+    const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
+    const text0 = secretTitles[0].innerHTML.split("");
+    const text1 = secretTitles[1].innerHTML.split("");
+    const text2 = secretTitles[2].innerHTML.split("");
+    const text = [text0, text1, text2];
+    secretTitles.forEach((element)=>{
+        element.innerHTML = "";
+    })
+
+    let isRunning = false;
+    let observer3 = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                if (isRunning) {
+                    return;
+                } else {
+                    secretTitles.forEach((element, index) => {
+                        let typingText = '';
+                        let i = 0;
+                        let intervalId; // Variable to store the interval ID
+                        function run() {
+                            isRunning = true;
+        
+                            intervalId = setInterval(() => {
+                                if (i == text[index].length) {
+                                    clearInterval(intervalId);
+                                } else {
+                                    typingText += text[index][i];
+                                    element.innerHTML = typingText;
+                                    i++;
+                                }
+                            }, 110);
+                        }
+                        setTimeout(run, 800 * index);
+                    });
+                }
+            }
+        });
+    });
+    const secretTitle = document.querySelectorAll(".the-ultimate-s2023--secret__title");
+    secretTitle.forEach((element) => {
+        observer3.observe(element);
+    });
+
     // lifting 스크롤시
     const liftingSection = document.querySelector(".the-ultimate-s2023--lifting");
     const graphLine = document.querySelector(".the-ultimate-s2023--lifting .the-ultimate-s2023-image");
@@ -155,45 +194,15 @@ const UltimateS = (function(){
     });
    
 
-    const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
-    const text0 = secretTitles[0].innerHTML.split("");
-    const text1 = secretTitles[1].innerHTML.split("");
-    const text2 = secretTitles[2].innerHTML.split("");
-    const text = [text0, text1, text2];
-
-    // secret 백그라운드 스크롤 효과
+    // secret 타이핑, 백그라운드 효과
+    
     const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
     const secret = gsap.timeline({
         scrollTrigger:{
             trigger:".the-ultimate-s2023--secret",
-            start:"top 30%",
+            start:"top 50%",
             end:"10% 50%",
-            scrub:true,
-            onEnter:function(){
-                secretTitles.forEach((element, index) => {
-                    element.innerHTML = '';
-                    let typingText = '';
-                    let i = 0;
-                    let intervalId; // Variable to store the interval ID
-                
-                    function run() {
-                        intervalId = setInterval(() => {
-                            if (i == text[index].length) {
-                                clearInterval(intervalId);
-                            } else {
-                                typingText += text[index][i];
-                                element.innerHTML = typingText;
-                                i++;
-                            }
-                        }, 110);
-                    }
-                
-                    setTimeout(run, 800 * index);
-                });
-            },
-            onLeaveBack:function(){
-                secretTitles.innerHTML = '';
-            }
+            scrub:true
         }
     });
     secret.from(secretBG,{y:"-20%",scale:1.1, autoAlpha:0.6});
