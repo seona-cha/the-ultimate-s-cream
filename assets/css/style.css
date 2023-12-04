@@ -565,6 +565,8 @@ body{
     padding-top: 60.9375vw;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title{
+    display: flex;
+    flex-direction: column;
     font-size: 74px;
     font-weight: 700;
     line-height: 1.27;
