@@ -899,6 +899,30 @@ body{
     .the-ultimate-s2023--intro .the-ultimate-s2023-text{
         font-size: 20px;
     }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle01{
+        width: 8vw;
+        top: 5%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle02{
+        left: -2%; bottom: -8%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle03,
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle05,
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle09{
+        display: none;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle04{
+        left: 30.3%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle06{
+        top: 26%; left: 37.7%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle07{
+        bottom: 14.5%; right: 8%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle10{
+        right: -2%;
+    }
     /* cream */
     .the-ultimate-s2023--cream .the-ultimate-s2023-section__inner{
         padding: 140px 0 30px;
@@ -1110,7 +1134,36 @@ body{
     .the-ultimate-s2023--intro .the-ultimate-s2023-image{
         width: 50vw;
     }
-    
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle01{
+        width: 8vw;
+        top: 13%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle02,
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle04,
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle06{
+        display: none;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle03{
+        display: block;
+        width: 11vw;
+        left: auto; right: 14%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle05{
+        display: block;
+        width: 7vw;
+        bottom: 4.4%; left: 19.5%;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle07{
+        bottom: 14.5%; right: 16%;
+        width: 9.3vw;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle09{
+        display: block;
+        width: 15vw;
+    }
+    .the-ultimate-s2023--intro .the-ultimate-s2023--particles .particle10{
+        right: -2%;
+    }
     /* video */
     .the-ultimate-s2023--video .the-ultimate-s2023-section__inner{
         padding: 2vw 1.8666vw;
