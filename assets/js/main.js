@@ -89,43 +89,6 @@ const UltimateS = (function(){
        
     })
     
-    // secret title typing action
-    // const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
-
-    // secretTitles.forEach((item)=>{
-    // })
-
-    
-    // let typing = new IntersectionObserver((entries) => {
-    //     entries.forEach((entry) => {
-    //         if (entry.isIntersecting) {
-    //             secretTitles.forEach((element, index) => {
-    //                 let text = element.innerHTML.split("");
-    //                 element.innerHTML = '';
-    //                 let typingText = '';
-    //                 let i = 0;
-    //                 let intervalId; // Variable to store the interval ID
-                
-    //                 function run() {
-    //                     intervalId = setInterval(() => {
-    //                         if (i == text.length) {
-    //                             clearInterval(intervalId);
-    //                         } else {
-    //                             typingText += text[i];
-    //                             element.innerHTML = typingText;
-    //                             i++;
-    //                         }
-    //                         console.log(i);
-    //                     }, 110);
-    //                 }
-                
-    //                 setTimeout(run, 800 * index);
-    //             });
-    //         }
-    //     });
-    // });
-    // const secretTitle = document.querySelector(".the-ultimate-s2023--secret__title");
-    // typing.observe(secretTitle);
 
     // io animation
     let observer = new IntersectionObserver((entries) => {
@@ -229,7 +192,6 @@ const UltimateS = (function(){
                 });
             },
             onLeaveBack:function(){
-                clearInterval(intervalId);
                 secretTitles.innerHTML = '';
             }
         }

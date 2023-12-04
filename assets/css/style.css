@@ -297,7 +297,7 @@ body{
 }
 .the-ultimate-s2023--cream .the-ultimate-s2023--cream__desc sup{
     display: inline-block;
-    transform-origin:center 35%;
+    transform-origin:center 37%;
     animation:spinning 2s infinite;
 }
 .the-ultimate-s2023--cream .the-ultimate-s2023--cream__price{
@@ -390,7 +390,7 @@ body{
 }
 .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__title sup{
     display: inline-block;
-    transform-origin:center 35%;
+    transform-origin:center 37%;
     animation:spinning 2s infinite;
 }
 .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__graph{
@@ -569,10 +569,6 @@ body{
     font-weight: 700;
     line-height: 1.27;
     text-align: center;
-}
-.the-ultimate-s2023--secret .the-ultimate-s2023--secret__title span{
-    position: relative;
-    z-index: 1;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color1{color: #9a9a9a;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color2{color: #c1c1c1;}
