@@ -570,6 +570,9 @@ body{
     line-height: 1.27;
     text-align: center;
 }
+.the-ultimate-s2023--secret .the-ultimate-s2023--secret__title span{
+    display: inline-block;
+}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color1{color: #9a9a9a;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color2{color: #c1c1c1;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color3{color: #ffffff;}
