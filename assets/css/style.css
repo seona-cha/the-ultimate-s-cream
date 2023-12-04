@@ -571,7 +571,8 @@ body{
     text-align: center;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title span{
-    display: inline-block;
+    display: block;
+    overflow: hidden;
 }
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color1{color: #9a9a9a;}
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color2{color: #c1c1c1;}
