@@ -90,44 +90,42 @@ const UltimateS = (function(){
     })
     
     // secret title typing action
-    const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
+    // const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
 
-    secretTitles.forEach((item)=>{
-    })
+    // secretTitles.forEach((item)=>{
+    // })
 
     
-    let typing = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const targetElement = entry.target;
-            console.log(entry);
-            if (entry.isIntersecting) {
-                secretTitles.forEach((element, index) => {
-                    let text = element.innerHTML.split("");
-                    element.innerHTML = '';
-                    let typingText = '';
-                    let i = 0;
-                    let intervalId; // Variable to store the interval ID
+    // let typing = new IntersectionObserver((entries) => {
+    //     entries.forEach((entry) => {
+    //         if (entry.isIntersecting) {
+    //             secretTitles.forEach((element, index) => {
+    //                 let text = element.innerHTML.split("");
+    //                 element.innerHTML = '';
+    //                 let typingText = '';
+    //                 let i = 0;
+    //                 let intervalId; // Variable to store the interval ID
                 
-                    function run() {
-                        intervalId = setInterval(() => {
-                            if (i == text.length) {
-                                clearInterval(intervalId);
-                            } else {
-                                typingText += text[i];
-                                element.innerHTML = typingText;
-                                i++;
-                            }
-                            console.log(i);
-                        }, 110);
-                    }
+    //                 function run() {
+    //                     intervalId = setInterval(() => {
+    //                         if (i == text.length) {
+    //                             clearInterval(intervalId);
+    //                         } else {
+    //                             typingText += text[i];
+    //                             element.innerHTML = typingText;
+    //                             i++;
+    //                         }
+    //                         console.log(i);
+    //                     }, 110);
+    //                 }
                 
-                    setTimeout(run, 800 * index);
-                });
-            }
-        });
-    },{threshold:0.2});
-    const secretTitle = document.querySelector(".the-ultimate-s2023--secret__title");
-    typing.observe(secretTitle);
+    //                 setTimeout(run, 800 * index);
+    //             });
+    //         }
+    //     });
+    // });
+    // const secretTitle = document.querySelector(".the-ultimate-s2023--secret__title");
+    // typing.observe(secretTitle);
 
     // io animation
     let observer = new IntersectionObserver((entries) => {
@@ -194,6 +192,12 @@ const UltimateS = (function(){
     });
    
 
+    const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
+    const text0 = secretTitles[0].innerHTML.split("");
+    const text1 = secretTitles[1].innerHTML.split("");
+    const text2 = secretTitles[2].innerHTML.split("");
+    const text = [text0, text1, text2];
+
     // secret 백그라운드 스크롤 효과
     const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
     const secret = gsap.timeline({
@@ -201,7 +205,33 @@ const UltimateS = (function(){
             trigger:".the-ultimate-s2023--secret",
             start:"top 30%",
             end:"10% 50%",
-            scrub:true
+            scrub:true,
+            onEnter:function(){
+                secretTitles.forEach((element, index) => {
+                    element.innerHTML = '';
+                    let typingText = '';
+                    let i = 0;
+                    let intervalId; // Variable to store the interval ID
+                
+                    function run() {
+                        intervalId = setInterval(() => {
+                            if (i == text[index].length) {
+                                clearInterval(intervalId);
+                            } else {
+                                typingText += text[index][i];
+                                element.innerHTML = typingText;
+                                i++;
+                            }
+                        }, 110);
+                    }
+                
+                    setTimeout(run, 800 * index);
+                });
+            },
+            onLeaveBack:function(){
+                clearInterval(intervalId);
+                secretTitles.innerHTML = '';
+            }
         }
     });
     secret.from(secretBG,{y:"-20%",scale:1.1, autoAlpha:0.6});
