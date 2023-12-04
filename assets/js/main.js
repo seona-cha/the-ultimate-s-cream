@@ -25,7 +25,6 @@ const UltimateS = (function(){
             trigger: introBG,
             start: "top top",
             end: `+=${introBG.offsetHeight * 2}`,
-            pin:false,
             scrub: true
         }
     })
@@ -73,10 +72,66 @@ const UltimateS = (function(){
     };
   
 
+    window.addEventListener("scroll",function(){
+        let curr = window.scrollY;
+        
+        // cream 영역 particles
+        const creamStart = document.querySelector(".the-ultimate-s2023--cream").offsetTop - (document.documentElement.offsetHeight / 2);
+        const creamEnd = document.querySelector(".the-ultimate-s2023--cream").offsetTop + document.querySelector(".the-ultimate-s2023--cream").offsetHeight - (document.documentElement.offsetHeight / 2);
+        const creamCurr = window.scrollY - creamStart;
+        const particle = document.querySelectorAll(".the-ultimate-s2023--cream .particle");
+        if(curr > creamStart && curr < creamEnd){
+            particle[0].style.transform = `rotate(${creamCurr * -0.2}deg)`;
+            particle[1].style.transform = `rotate(${creamCurr * 0.4}deg)`;
+        }
+
+         
+       
+    })
+    
+    // secret title typing action
+    const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
+
+    secretTitles.forEach((item)=>{
+    })
+
+    
+    let typing = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const targetElement = entry.target;
+            console.log(entry);
+            if (entry.isIntersecting) {
+                secretTitles.forEach((element, index) => {
+                    let text = element.innerHTML.split("");
+                    element.innerHTML = '';
+                    let typingText = '';
+                    let i = 0;
+                    let intervalId; // Variable to store the interval ID
+                
+                    function run() {
+                        intervalId = setInterval(() => {
+                            if (i == text.length) {
+                                clearInterval(intervalId);
+                            } else {
+                                typingText += text[i];
+                                element.innerHTML = typingText;
+                                i++;
+                            }
+                            console.log(i);
+                        }, 110);
+                    }
+                
+                    setTimeout(run, 800 * index);
+                });
+            }
+        });
+    },{threshold:0.2});
+    const secretTitle = document.querySelector(".the-ultimate-s2023--secret__title");
+    typing.observe(secretTitle);
+
     // io animation
     let observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
-            console.log(entry);
             const targetElement = entry.target;
             if (entry.isIntersecting) {
                 targetElement.classList.add("active");
@@ -137,7 +192,8 @@ const UltimateS = (function(){
     liftingItem.forEach((item,index)=>{
         lifting.fromTo(item,{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:index+1,duration:1},'a');
     });
-    
+   
+
     // secret 백그라운드 스크롤 효과
     const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
     const secret = gsap.timeline({
@@ -179,9 +235,8 @@ const UltimateS = (function(){
                       .from(wrapper,{y:"15%",duration:2},'a')
                       .from(bgImg,{scale:1.15},'a');
         }
-        secretCard
-              .from(title,{autoAlpha:0,y:25})
-              .from(desc,{autoAlpha:0,y:25});
+        secretCard.from(title,{autoAlpha:0,y:25})
+                  .from(desc,{autoAlpha:0,y:25});
     });
 
     window.addEventListener("resize", ScrollTrigger.update);
