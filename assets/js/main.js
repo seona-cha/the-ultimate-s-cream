@@ -266,7 +266,7 @@ const UltimateS = (function(){
         count+=10;
         
         // display 모션
-        const scrollYBottom = window.scrollY + document.documentElement.clientHeight * 0.8;
+        const scrollYBottom = window.scrollY + document.documentElement.clientHeight;
         const displayTop = document.querySelector('.the-ultimate-s2023--display').offsetTop;
         const displayItem = document.querySelectorAll('.the-ultimate-s2023--display__item');
         // (1) scale 조정
