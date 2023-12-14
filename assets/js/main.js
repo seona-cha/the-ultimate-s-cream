@@ -1,6 +1,7 @@
 const UltimateS = (function(){
     
     gsap.registerPlugin(ScrollTrigger);
+    
     // intro mousemove event
     const introBG = document.querySelector(".the-ultimate-s2023--intro");
     introBG.addEventListener("mousemove",function(e){
@@ -24,28 +25,28 @@ const UltimateS = (function(){
         scrollTrigger: {
             trigger: introBG,
             start: "top top",
-            end: `+=${introBG.offsetHeight * 2}`,
+            end: `+=${introBG.offsetHeight * 1.2}`,
             scrub: true
         }
     })
     introOpen.addLabel('a')
-             .from(".the-ultimate-s2023-section__video",{autoAlpha:0,duration:1,delay:1},'a');
+             .from(".the-ultimate-s2023-section__video",{autoAlpha:0,duration:1},'a');
 
 
     // 비디오 멈췄다가 보이면 재생
     ScrollTrigger.create({
         trigger: ".the-ultimate-s2023--intro",
-        start: `60% top`,
+        start: `5% top`,
         end: `60% top`,
-        scrub: true,
         onLeave:function(){
             document.querySelectorAll(".the-ultimate-s2023--video video").forEach((item)=>{
                 item.play();
             })
         },
-        onEnterBack:function(){
+        onLeaveBack:function(){
             document.querySelectorAll(".the-ultimate-s2023--video video").forEach((item)=>{
                 item.pause();
+                item.currentTime = 0;
             })
         }
     });
@@ -69,20 +70,27 @@ const UltimateS = (function(){
         }
     };
   
-
-    window.addEventListener("scroll",function(){
-        let curr = window.scrollY;
-        // cream 영역 particles
-        const creamStart = document.querySelector(".the-ultimate-s2023--cream").offsetTop - (document.documentElement.offsetHeight / 2);
-        const creamEnd = document.querySelector(".the-ultimate-s2023--cream").offsetTop + document.querySelector(".the-ultimate-s2023--cream").offsetHeight - (document.documentElement.offsetHeight / 2);
-        const creamCurr = window.scrollY - creamStart;
-        const particle = document.querySelectorAll(".the-ultimate-s2023--cream .particle");
-
-        if(curr > creamStart && curr < creamEnd){
-            particle[0].style.transform = `rotate(${creamCurr * -0.2}deg)`;
-            particle[1].style.transform = `rotate(${creamCurr * 0.4}deg)`;
+    // marquee 배너
+    const marquee = document.querySelector('.marquee-text span');
+    const copyText = marquee.innerHTML;
+    let count = 0;
+    for(let i = 0; i < 13; i++){
+        marquee.innerHTML += " " + copyText;
+    }
+    function marqueeText(element){
+        if(count > element.scrollWidth / 2){
+            element.style.transform = 'translateX(0px)';
+            count = 0;
         }
-    })
+        element.style.transform = `translateX(${count * -1}px)`;
+    }
+    function marqueeAni(){
+        window.requestAnimationFrame(marqueeAni);
+        
+        count++;
+        marqueeText(marquee);
+    }
+    marqueeAni();
     
 
     // io animation
@@ -239,6 +247,71 @@ const UltimateS = (function(){
         secretCard.from(title,{autoAlpha:0,y:25})
                   .from(desc,{autoAlpha:0,y:25});
     });
+
+    window.addEventListener("scroll",function(){
+        let curr = window.scrollY;
+
+        // cream 영역 particles
+        const creamStart = document.querySelector(".the-ultimate-s2023--cream").offsetTop - (document.documentElement.offsetHeight / 2);
+        const creamEnd = document.querySelector(".the-ultimate-s2023--cream").offsetTop + document.querySelector(".the-ultimate-s2023--cream").offsetHeight - (document.documentElement.offsetHeight / 2);
+        const creamCurr = window.scrollY - creamStart;
+        const particle = document.querySelectorAll(".the-ultimate-s2023--cream .particle");
+
+        if(curr > creamStart && curr < creamEnd){
+            particle[0].style.transform = `rotate(${creamCurr * -0.2}deg)`;
+            particle[1].style.transform = `rotate(${creamCurr * 0.4}deg)`;
+        }
+
+        // marquee 배너 값 조정
+        count+=10;
+        
+        // display 모션
+        const scrollYBottom = window.scrollY + document.documentElement.clientHeight * 0.8;
+        const displayTop = document.querySelector('.the-ultimate-s2023--display').offsetTop;
+        const displayItem = document.querySelectorAll('.the-ultimate-s2023--display__item');
+        // (1) scale 조정
+        let firstOffsetTop = displayTop + displayItem[0].offsetTop;
+        let firstOffsetHeight = displayItem[0].offsetHeight;
+        let firstScale = 1.2;
+        if(scrollYBottom > firstOffsetTop && scrollYBottom < firstOffsetTop + firstOffsetHeight){
+            firstScale = 1.2 - 0.2 * (scrollYBottom - firstOffsetTop) / firstOffsetHeight ;
+            displayItem[0].querySelector('img').style.transform = `scale(${firstScale})`;
+        }
+        // (2) 뚜껑 열고닫기
+        let secondOffsetTop = displayTop + displayItem[1].offsetTop;
+        let secondOffsetHeight = displayItem[1].offsetHeight;
+        let secondCapX = -52;
+        let secondCapY = 53;
+        let secondCapR = -17;
+        if(scrollYBottom > secondOffsetTop && scrollYBottom < secondOffsetTop + secondOffsetHeight){
+            secondCapX = -13 + (13 * (scrollYBottom - secondOffsetTop) / secondOffsetHeight) ;
+            secondCapY = 20 - (20 * (scrollYBottom - secondOffsetTop) / secondOffsetHeight) ;
+            secondCapR = -17 + (17 * (scrollYBottom - secondOffsetTop) / secondOffsetHeight) ;
+            displayItem[1].querySelector('.cap').style.transform = `translate(${secondCapX}%,${secondCapY}%) rotate(${secondCapR}deg)`;
+        }
+        // (3) 무중력
+        let thirdOffsetTop = displayTop + displayItem[2].offsetTop;
+        let thirdOffsetHeight = displayItem[2].offsetHeight;
+        let thirdX = 0;
+        let thirdR = 0;
+        if(scrollYBottom > thirdOffsetTop && scrollYBottom < thirdOffsetTop + thirdOffsetHeight){
+            thirdX = (17 * (scrollYBottom - thirdOffsetTop) / thirdOffsetHeight) ;
+            thirdR = (8 * (scrollYBottom - thirdOffsetTop) / thirdOffsetHeight) ;
+            displayItem[2].querySelector('picture img:nth-child(1)').style.transform = `translateX(${thirdX / 2}%) rotate(${thirdR}deg)`;
+            displayItem[2].querySelector('picture img:nth-child(2)').style.transform = `translateX(-${thirdX}%) rotate(-${thirdR / 2}deg)`;
+        }
+        // (4) 굴러오기
+        let fourthOffsetTop = displayTop + displayItem[3].offsetTop;
+        let fourthOffsetHeight = displayItem[3].offsetHeight;
+        let fourthX = 50;
+        let fourthScale = 0.7;
+        if(scrollYBottom > fourthOffsetTop && scrollYBottom < fourthOffsetTop + fourthOffsetHeight){
+            fourthX = 50 - (50 * (scrollYBottom - fourthOffsetTop) / fourthOffsetHeight) ;
+            fourthScale = 0.7 + (0.3 * (scrollYBottom - fourthOffsetTop) / fourthOffsetHeight) ;
+            displayItem[3].querySelector('picture img:nth-child(1)').style.transform = `scale(${fourthScale})`;
+            displayItem[3].querySelector('picture img:nth-child(2)').style.transform = `translateX(${fourthX}%)`;
+        }
+    })
 
     window.addEventListener("resize", ScrollTrigger.update);
 
