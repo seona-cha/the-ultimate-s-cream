@@ -1,8 +1,23 @@
-const UltimateS = (function(){
+const UltimateS = (function(){    
+    // io animation
+    let observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            const targetElement = entry.target;
+            if (entry.isIntersecting) {
+                targetElement.classList.add("active");
+            }
+        });
+    },{threshold:0.2});
     
+    const observeItems = document.querySelectorAll(".observe-item");
+    observeItems.forEach((element) => {
+        observer.observe(element);
+    });
+
+
     gsap.registerPlugin(ScrollTrigger);
-    
-    // intro mousemove event
+
+    // intro
     const introBG = document.querySelector(".the-ultimate-s2023--intro");
     introBG.addEventListener("mousemove",function(e){
         const introBGImg = introBG.querySelector(".the-ultimate-s2023-section__background img");
@@ -20,7 +35,6 @@ const UltimateS = (function(){
         introBGImg.style.transform = `scale(1.02) translate(${itemOffsetX}px,${itemOffsetY}px)`;
     });
 
-    // intro 열기
     const introOpen = gsap.timeline({
         scrollTrigger: {
             trigger: introBG,
@@ -29,11 +43,12 @@ const UltimateS = (function(){
             scrub: true
         }
     })
+
     introOpen.addLabel('a')
              .from(".the-ultimate-s2023-section__video",{autoAlpha:0,duration:1},'a');
 
 
-    // 비디오 멈췄다가 보이면 재생
+    // video
     ScrollTrigger.create({
         trigger: ".the-ultimate-s2023--intro",
         start: `5% top`,
@@ -51,7 +66,6 @@ const UltimateS = (function(){
         }
     });
 
-    // 비디오 자막 버튼
     const videoDescBtn = document.querySelector(".the-ultimate-s2023-video__button");
     const videoDesc = document.querySelector(".the-ultimate-s2023-video__description__wrapper");
     
@@ -70,13 +84,15 @@ const UltimateS = (function(){
         }
     };
   
-    // marquee 배너
+
+    // cream
     const marquee = document.querySelector('.marquee-text span');
     const copyText = marquee.innerHTML;
     let count = 0;
     for(let i = 0; i < 13; i++){
         marquee.innerHTML += " " + copyText;
     }
+
     function marqueeText(element){
         if(count > element.scrollWidth / 2){
             element.style.transform = 'translateX(0px)';
@@ -84,50 +100,54 @@ const UltimateS = (function(){
         }
         element.style.transform = `translateX(${count * -1}px)`;
     }
+
     function marqueeAni(){
         window.requestAnimationFrame(marqueeAni);
         
         count++;
         marqueeText(marquee);
     }
+
     marqueeAni();
     
 
-    // io animation
-    let observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-            const targetElement = entry.target;
-            if (entry.isIntersecting) {
-                targetElement.classList.add("active");
-            }
-        });
-    },{threshold:0.2});
-    
-    const observeItems = document.querySelectorAll(".observe-item");
-    observeItems.forEach((element) => {
-        observer.observe(element);
-    });
+    // lifting
+    const liftingSection = document.querySelector(".the-ultimate-s2023--lifting");
+    const graphLine = document.querySelector(".the-ultimate-s2023--lifting .the-ultimate-s2023-image");
+    const liftingItem = document.querySelectorAll(".the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item");
 
-    // odometer
+    const lifting = gsap.timeline({
+        scrollTrigger:{
+            trigger:liftingSection,
+            start:"25% 45%",
+            end:"80% 55%",
+            scrub:true
+        }
+    })
+
+    lifting.addLabel('a')
+           .from(graphLine,{autoAlpha:0,height:0,duration:5},'a');
+    liftingItem.forEach((item,index)=>{
+        lifting.fromTo(item,{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:index+1,duration:1},'a');
+    });
+   
+
+    // effect
     const odometer = document.querySelectorAll(".odometer");
     let observer2 = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                setTimeout(function(){
-                    odometer[0].innerHTML = 40.4;
-                    odometer[1].innerHTML = 22.4;
-                    odometer[2].innerHTML = 18.5;
-                    odometer[3].innerHTML = 22.6;
-                    odometer[4].innerHTML = 8.6;
-                }, 100);
+                odometer[0].innerHTML = 40.4;
+                odometer[1].innerHTML = 22.4;
+                odometer[2].innerHTML = 18.5;
+                odometer[3].innerHTML = 22.6;
+                odometer[4].innerHTML = 8.6;
             } else {
-                setTimeout(function(){
-                    odometer[0].innerHTML = 0;
-                    odometer[1].innerHTML = 0;
-                    odometer[2].innerHTML = 0;
-                    odometer[3].innerHTML = 0;
-                    odometer[4].innerHTML = 0;
-                }, 100);
+                odometer[0].innerHTML = 0;
+                odometer[1].innerHTML = 0;
+                odometer[2].innerHTML = 0;
+                odometer[3].innerHTML = 0;
+                odometer[4].innerHTML = 0;
             }
         });
     });
@@ -138,11 +158,13 @@ const UltimateS = (function(){
     });
 
 
+    // secret 
     const secretTitles = document.querySelectorAll(".the-ultimate-s2023--secret__title span");
     const text0 = secretTitles[0].innerHTML.split("");
     const text1 = secretTitles[1].innerHTML.split("");
     const text2 = secretTitles[2].innerHTML.split("");
     const text = [text0, text1, text2];
+
     secretTitles.forEach((element)=>{
         element.innerHTML = "";
     })
@@ -157,7 +179,7 @@ const UltimateS = (function(){
                     secretTitles.forEach((element, index) => {
                         let typingText = '';
                         let i = 0;
-                        let intervalId; // Variable to store the interval ID
+                        let intervalId;
                         function run() {
                             isRunning = true;
         
@@ -177,34 +199,14 @@ const UltimateS = (function(){
             }
         });
     });
+
     const secretTitle = document.querySelectorAll(".the-ultimate-s2023--secret__title");
     secretTitle.forEach((element) => {
         observer3.observe(element);
     });
 
-    // lifting 스크롤시
-    const liftingSection = document.querySelector(".the-ultimate-s2023--lifting");
-    const graphLine = document.querySelector(".the-ultimate-s2023--lifting .the-ultimate-s2023-image");
-    const liftingItem = document.querySelectorAll(".the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__item");
-
-    const lifting = gsap.timeline({
-        scrollTrigger:{
-            trigger:liftingSection,
-            start:"25% 45%",
-            end:"80% 55%",
-            scrub:true
-        }
-    })
-    lifting.addLabel('a')
-           .from(graphLine,{autoAlpha:0,height:0,duration:5},'a');
-    liftingItem.forEach((item,index)=>{
-        lifting.fromTo(item,{autoAlpha:0,y:10},{autoAlpha:1,y:0,delay:index+1,duration:1},'a');
-    });
-   
-
-    // secret 타이핑, 백그라운드 효과
-    
     const secretBG = document.querySelector(".the-ultimate-s2023--secret .the-ultimate-s2023-section__background img")
+    
     const secret = gsap.timeline({
         scrollTrigger:{
             trigger:".the-ultimate-s2023--secret",
@@ -213,9 +215,9 @@ const UltimateS = (function(){
             scrub:true
         }
     });
+
     secret.from(secretBG,{y:"-20%",scale:1.1, autoAlpha:0.6});
 
-    // secret 영역 카드 애니메이션
     const secretCard = gsap.timeline({
         scrollTrigger: {
             trigger: ".the-ultimate-s2023--secret__list-wrapper",
@@ -225,7 +227,9 @@ const UltimateS = (function(){
             scrub: true
         }
     });
+
     const secretItems = document.querySelectorAll(".the-ultimate-s2023--secret__item");
+    
     secretItems.forEach((item, index)=>{
         const prevItem = secretItems[index-1];
         const wrapper = item.querySelector(".item__wrapper");
@@ -248,12 +252,65 @@ const UltimateS = (function(){
                   .from(desc,{autoAlpha:0,y:25});
     });
 
+
+    // display
+    function scaleAni(element, progress) {
+        const scale = 1.2 - 0.2 * progress;
+        element.querySelector('img').style.transform = `scale(${scale})`;
+    }
+
+    function capAni(element, progress) {
+        const capX = -13 + 13 * progress;
+        const capY = 20 - 20 * progress;
+        const capR = -17 + 17 * progress;
+        element.querySelector('.cap').style.transform = `translate(${capX}%,${capY}%) rotate(${capR}deg)`;
+    }
+
+    function weightlessAni(element, progress) {
+        const x = (17 * progress);
+        const r = (8 * progress);
+        element.querySelector('picture img:nth-child(1)').style.transform = `translateX(${x / 2}%) rotate(${r}deg)`;
+        element.querySelector('picture img:nth-child(2)').style.transform = `translateX(-${x}%) rotate(-${r / 2}deg)`;
+    }
+
+    function pushAni(element, progress) {
+        const x = 50 - (50 * progress);
+        const scale = 0.7 + (0.3 * progress);
+        element.querySelector('picture img:nth-child(1)').style.transform = `scale(${scale})`;
+        element.querySelector('picture img:nth-child(2)').style.transform = `translateX(${x}%)`;
+    }
+
+    function displayAnimation() {
+        const scrollYBottom = window.scrollY + innerHeight;
+        const displayTop = document.querySelector('.the-ultimate-s2023--display').offsetTop;
+        const displayItem = document.querySelectorAll('.the-ultimate-s2023--display__item');
+
+        const animations = [
+            {index:0, animationName:scaleAni},
+            {index:1, animationName:capAni},
+            {index:2, animationName:weightlessAni},
+            {index:3, animationName:pushAni}
+        ];
+
+        displayItem.forEach((element, index) => {
+            const itemOffsetTop = displayTop + element.offsetTop;
+            const progress = (scrollYBottom - itemOffsetTop) / element.offsetHeight;
+            const animationName = animations[index].animationName;
+
+            if (scrollYBottom > itemOffsetTop && scrollYBottom < itemOffsetTop + element.offsetHeight) {
+                animationName(element, progress);
+            }
+        });
+        
+    }
+    
+    
     window.addEventListener("scroll",function(){
         let curr = window.scrollY;
 
         // cream 영역 particles
-        const creamStart = document.querySelector(".the-ultimate-s2023--cream").offsetTop - (document.documentElement.offsetHeight / 2);
-        const creamEnd = document.querySelector(".the-ultimate-s2023--cream").offsetTop + document.querySelector(".the-ultimate-s2023--cream").offsetHeight - (document.documentElement.offsetHeight / 2);
+        const creamStart = document.querySelector(".the-ultimate-s2023--cream").offsetTop - (innerHeight / 2);
+        const creamEnd = document.querySelector(".the-ultimate-s2023--cream").offsetTop + document.querySelector(".the-ultimate-s2023--cream").offsetHeight - (innerHeight / 2);
         const creamCurr = window.scrollY - creamStart;
         const particle = document.querySelectorAll(".the-ultimate-s2023--cream .particle");
 
@@ -263,54 +320,10 @@ const UltimateS = (function(){
         }
 
         // marquee 배너 값 조정
-        count+=10;
-        
-        // display 모션
-        const scrollYBottom = window.scrollY + document.documentElement.clientHeight;
-        const displayTop = document.querySelector('.the-ultimate-s2023--display').offsetTop;
-        const displayItem = document.querySelectorAll('.the-ultimate-s2023--display__item');
-        // (1) scale 조정
-        let firstOffsetTop = displayTop + displayItem[0].offsetTop;
-        let firstOffsetHeight = displayItem[0].offsetHeight;
-        let firstScale = 1.2;
-        if(scrollYBottom > firstOffsetTop && scrollYBottom < firstOffsetTop + firstOffsetHeight){
-            firstScale = 1.2 - 0.2 * (scrollYBottom - firstOffsetTop) / firstOffsetHeight ;
-            displayItem[0].querySelector('img').style.transform = `scale(${firstScale})`;
-        }
-        // (2) 뚜껑 열고닫기
-        let secondOffsetTop = displayTop + displayItem[1].offsetTop;
-        let secondOffsetHeight = displayItem[1].offsetHeight;
-        let secondCapX = -52;
-        let secondCapY = 53;
-        let secondCapR = -17;
-        if(scrollYBottom > secondOffsetTop && scrollYBottom < secondOffsetTop + secondOffsetHeight){
-            secondCapX = -13 + (13 * (scrollYBottom - secondOffsetTop) / secondOffsetHeight) ;
-            secondCapY = 20 - (20 * (scrollYBottom - secondOffsetTop) / secondOffsetHeight) ;
-            secondCapR = -17 + (17 * (scrollYBottom - secondOffsetTop) / secondOffsetHeight) ;
-            displayItem[1].querySelector('.cap').style.transform = `translate(${secondCapX}%,${secondCapY}%) rotate(${secondCapR}deg)`;
-        }
-        // (3) 무중력
-        let thirdOffsetTop = displayTop + displayItem[2].offsetTop;
-        let thirdOffsetHeight = displayItem[2].offsetHeight;
-        let thirdX = 0;
-        let thirdR = 0;
-        if(scrollYBottom > thirdOffsetTop && scrollYBottom < thirdOffsetTop + thirdOffsetHeight){
-            thirdX = (17 * (scrollYBottom - thirdOffsetTop) / thirdOffsetHeight) ;
-            thirdR = (8 * (scrollYBottom - thirdOffsetTop) / thirdOffsetHeight) ;
-            displayItem[2].querySelector('picture img:nth-child(1)').style.transform = `translateX(${thirdX / 2}%) rotate(${thirdR}deg)`;
-            displayItem[2].querySelector('picture img:nth-child(2)').style.transform = `translateX(-${thirdX}%) rotate(-${thirdR / 2}deg)`;
-        }
-        // (4) 굴러오기
-        let fourthOffsetTop = displayTop + displayItem[3].offsetTop;
-        let fourthOffsetHeight = displayItem[3].offsetHeight;
-        let fourthX = 50;
-        let fourthScale = 0.7;
-        if(scrollYBottom > fourthOffsetTop && scrollYBottom < fourthOffsetTop + fourthOffsetHeight){
-            fourthX = 50 - (50 * (scrollYBottom - fourthOffsetTop) / fourthOffsetHeight) ;
-            fourthScale = 0.7 + (0.3 * (scrollYBottom - fourthOffsetTop) / fourthOffsetHeight) ;
-            displayItem[3].querySelector('picture img:nth-child(1)').style.transform = `scale(${fourthScale})`;
-            displayItem[3].querySelector('picture img:nth-child(2)').style.transform = `translateX(${fourthX}%)`;
-        }
+        count+= (innerWidth * 0.003 + 5);
+
+        // display 호출
+        displayAnimation();
     })
 
     window.addEventListener("resize", ScrollTrigger.update);

@@ -359,6 +359,7 @@ body{
 .the-ultimate-s2023--lifting{
     height:100vw;
     max-height: 1500px;
+    background: url(../images/the-ultimate-s_lifting-background_pc_kr_231116.jpg) no-repeat center / cover;
 }
 .the-ultimate-s2023--lifting .the-ultimate-s2023-section__inner{
     position: absolute;
@@ -367,12 +368,20 @@ body{
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: none;
+    max-width: 1920px;
     height: 100%;
-    padding: 10% 0 5%;
+    padding: 192px 0 96px;
     color: #fff;
     box-sizing: border-box;
-    background: url(../images/the-ultimate-s_lifting-background_pc_kr_231116.jpg) no-repeat center / cover;
+}
+.the-ultimate-s2023--lifting .the-ultimate-s2023-section__inner::before{
+    display: block;
+    position: absolute;
+    top: 0; left: -200%;
+    width: 200%;
+    height: 100%;
+    background: #000;
+    content:'';
 }
 
 .the-ultimate-s2023--lifting .the-ultimate-s2023--lifting__title{
@@ -581,7 +590,7 @@ body{
 .the-ultimate-s2023--secret .the-ultimate-s2023--secret__title .color3{color: #ffffff;}
 
 .the-ultimate-s2023--secret__list-wrapper{
-    width: 100vw;
+    width: 100%;
     height: 500vw;
     min-height:3000px;
 }
@@ -601,7 +610,6 @@ body{
     position: absolute;
     top: 50%; left: 50%;
     transform: translate(-50%,-50%);
-    border-radius:40px;
     color: #fff;
     opacity: 0;
 }
@@ -616,6 +624,8 @@ body{
     width: 100%;
     height: 100%;
     object-fit: cover;
+    border-radius:40px;
+    overflow: hidden;
     /* animation:bounce 5s infinite ease; */
 }
 @keyframes bounce{
@@ -681,7 +691,7 @@ body{
 
 /* design */
 .the-ultimate-s2023--design{
-    background: url(../images/the-ultimate-s_design-bg_pc_kr_231116.jpg) no-repeat center / cover;
+    background: url(../images/the-ultimate-s_design-bg_pc_kr_231116.jpg) no-repeat center bottom / cover;
 }
 .the-ultimate-s2023--design .the-ultimate-s2023-section__inner{
     padding-top: 1100px;
@@ -827,28 +837,6 @@ body{
 .the-ultimate-s2023--display__item:nth-child(4) picture img:nth-child(2){
     bottom: 83px; right: 200px;
 }
-/* .the-ultimate-s2023--display__item .item__background img{
-    width: 100%;
-    display: block;
-    transform: scale(1.15);
-    opacity: 0.5;
-    transition:all 0.5s ease;
-}
-.the-ultimate-s2023--display__item:nth-child(1) .item__background img,
-.the-ultimate-s2023--display__item:nth-child(4) .item__background img{
-    transform-origin: 70% center;
-}
-.the-ultimate-s2023--display__item:nth-child(2) .item__background img,
-.the-ultimate-s2023--display__item:nth-child(3) .item__background img{
-    transform-origin: center 60%;
-}
-.the-ultimate-s2023--display__item.active .item__background img{
-    transform: scale(1);
-    opacity: 1;
-}
-.the-ultimate-s2023--display__item:hover .item__background img{
-    transform: scale(1.1);
-} */
 .the-ultimate-s2023--display .the-ultimate-s2023--display__item:nth-child(1),
 .the-ultimate-s2023--display .the-ultimate-s2023--display__item:nth-child(4){
     grid-column: span 2;
